@@ -34,32 +34,24 @@ spec:
 
 
 
-Pod-1
+ kubectl run app --image=nginx
+ 
+ kubectl run db --image=nginx
+ 
+ kubectl get pods
+ 
+ kubectl expose pod app-pod --port=80
+ 
+ kubectl expose pod app --port=80
+ 
+ ubectl expose pod db --port=80
+   
+ kubectl get svc
+   
+ kubectl exec -it app -- curl db
+   
+ kubectl exec -it db -- curl app
 
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx
-spec:
-  containers:
-  - name: nginx
-    image: nginx
-    ports:
-    - containerPort: 80
-
-
-Pod-2
-
-apiVersion: v1
-kind: Pod
-metadata:
-  name: httpd
-spec:
-  containers:
-  - name: httpd
-    image: httpd
-    ports:
-    - containerPort: 80
 
 -----------------------------------------------------------------------------------
 
